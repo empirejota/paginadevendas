@@ -1,0 +1,224 @@
+/* Resetando estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #111;
+}
+
+header .logo {
+    width: 60px;  /* Tamanho do círculo */
+    height: 60px; /* Tamanho do círculo */
+    border-radius: 50%; /* Círculo */
+    overflow: hidden; /* Para garantir que a imagem não vaze para fora do círculo */
+}
+
+header .logo img {
+    width: 100%;  /* A imagem vai preencher todo o círculo */
+    height: 100%; /* A imagem vai preencher todo o círculo */
+    object-fit: cover; /* A imagem será cortada de forma a cobrir o círculo */
+}
+
+/* Navegação */
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Banner Principal */
+.banner {
+    background-color: #333;
+    text-align: center;
+    padding: 50px;
+    margin-top: 20px;
+}
+
+.banner h2 {
+    font-size: 36px;
+}
+
+.banner p {
+    font-size: 18px;
+}
+
+/* Seção de Livros */
+.livros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.livro {
+    background-color: #222;
+    margin: 15px;
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.livro img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.livro h3 {
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+.livro p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.comprar-btn {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.comprar-btn:hover {
+    background-color: #ff4500;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+}
+
+footer p {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.redes-sociais {
+    margin-top: 10px;
+}
+
+.redes-sociais a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.redes-sociais a:hover {
+    color: #ff6347;
+}
+
+/* Modal de Suporte */
+.modal {
+    display: none; /* Inicialmente escondido */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-conteudo {
+    background-color: #333;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center; /* Centraliza o título */
+    color: #fff;
+    width: 90%;
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o modal na tela */
+}
+
+.modal h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.modal p {
+    font-size: 18px;
+    text-align: left; /* Alinha os parágrafos à esquerda */
+}
+
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.fechar:hover {
+    color: #ff6347;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .livros {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .livro {
+        width: 80%;
+    }
+
+    .banner h2 {
+        font-size: 28px;
+    }
+
+    .banner p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .livro {
+        width: 100%;
+    }
+
+    .banner h2 {
+        font-size: 24px;
+    }
+
+    .banner p {
+        font-size: 14px;
+    }
+}
