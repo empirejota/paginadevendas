@@ -12,66 +12,31 @@
       padding: 0;
     }
     .navbar {
-      background-color: #333;
+      background-color: #000000;
       color: white;
       padding: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .navbar .menu-btn {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .menu {
-      display: none;
-      position: absolute;
-      top: 50px;
-      left: 10px;
-      background: white;
-      color: black;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      width: 200px;
-      padding: 10px;
-      z-index: 1000;
-    }
-    .menu a {
-      text-decoration: none;
-      color: #333;
-      display: block;
-      margin: 10px 0;
+    .navbar .logo img {
+      height: 40px;
+      border-radius: 10%;
     }
     .promo-timer {
       text-align: center;
-      background: #f06595;
+      background: #ffffff;
       color: white;
-      padding: 5px 10px;
+      padding: 1px 2px;
       font-size: 0.9rem;
-    }
-    .hero {
-      text-align: center;
-      padding: 30px 15px;
-      background: #f4f4f4;
-    }
-    .hero h1 {
-      font-size: 1.8rem;
-    }
-    .hero p {
-      font-size: 0.9rem;
-      color: #555;
     }
     .promo-banner {
-      background: linear-gradient(to right, #ff6b6b, #f06595);
+      background: linear-gradient(to right, hsl(0, 0%, 0%), #000000);
       color: white;
       text-align: center;
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 10px;
+      padding: 1px;
+      margin: 1px 0;
+      border-radius: 0px;
     }
     .promo-banner h2 {
       font-size: 1.2rem;
@@ -104,66 +69,108 @@
       text-align: center;
       padding: 10px 0;
     }
+    .carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      max-height: 300px; /* Altura fixa para os banners */
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 0cap;
+      border-color: #160000;
+      color: #000000;
+    }
+    .carousel-indicators {
+      position: absolute;
+      bottom: 1px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+    }
+    .carousel-indicators button {
+      width: 10px;
+      height: 5x;
+    
+      background-color: rgba(255, 255, 255, 0.788);
+      cursor: pointer;
+    }
+    .carousel-indicators button.active {
+      background-color: rgba(255, 255, 255, 1);
+    }
+  
+    .book-card
+    {
+      border-radius: 5%;
+      background-color: #ffffff;
+      gap: 15px;
+      
+
+    }
+     
+    
+    
   </style>
 </head>
 <body>
   <!-- Navbar -->
   <div class="navbar">
-    <button class="menu-btn">☰ Gêneros</button>
-    <div class="logo">Loja de Livros</div>
-    <div class="links">
-      <a href="#" style="color: white; text-decoration: none; margin-right: 10px;">Promoções</a>
+    <div class="logo">
+      <img src="Imperio (3).png" alt="Logo da Loja">
+      
     </div>
   </div>
 
-  <!-- Menu de Gêneros -->
-  <div class="menu" id="menu">
-    <a href="#">Ficção</a>
-    <a href="#">Romance</a>
-    <a href="#">Aventura</a>
-    <a href="#">Negócios</a>
-    <a href="#">Biografias</a>
+  <!-- Carrossel de Banners -->
+  <div class="carousel">
+    <div class="carousel-track" id="carousel-track">
+      <img src="Design sem nome (2).png" alt="Banner 1">
+      <img src="Design sem nome (2).png" alt="Banner 2">
+      <img src="Design sem nome (2).png" alt="Banner 3">
+    </div>
+    <div class="carousel-indicators" id="carousel-indicators">
+      <button data-slide="0" class="active"></button>
+      <button data-slide="1"></button>
+      <button data-slide="2"></button>
+    </div>
   </div>
 
-  <!-- Promo Timer -->
-  <div class="promo-timer" id="promo-timer">
-    Promoção termina em: <span id="timer">04:00</span>
-  </div>
-
-  <!-- Hero Section -->
-  <div class="hero">
-    <h1>Bem-vindo à Loja de Livros</h1>
-    <p>Explore o nosso catálogo de livros e descubra sua próxima leitura!</p>
-  </div>
-
-  <!-- Promo Banner -->
+  <!-- Promoção Especial -->
   <div class="promo-banner">
     <h2>Promoção Especial: Frete Grátis</h2>
     <p>Compre 3 livros ou mais e ganhe frete grátis!</p>
   </div>
 
   <!-- Categorias -->
-  <div class="categories">
-    <div class="category-item">Ficção</div>
-    <div class="category-item">Romance</div>
-    <div class="category-item">Aventura</div>
-    <div class="category-item">Negócios</div>
-    <div class="category-item">Biografias</div>
-  </div>
+
 
   <!-- Livros em Destaque -->
   <div class="books">
     <div class="book-card">
-      <img src="https://via.placeholder.com/150x200" alt="Livro 1">
-      <h5>Livro 1</h5>
+      <img src="https://th.bing.com/th/id/OIP.YC7VB6LmClO7DRd9iGtV8QHaHa?w=176&h=180&c=7&r=0&o=5&pid=1.7" alt="Capa do Livro 2">
+      <h3>Marionetes</h3>
+      <p>Dinâmica do poder.</p>
+      <a href="https://pay.cakto.com.br/4qTV9mU" target="_blank" class="comprar-btn">Comprar Agora</a>
     </div>
     <div class="book-card">
-      <img src="https://via.placeholder.com/150x200" alt="Livro 2">
-      <h5>Livro 2</h5>
+      <img src="https://th.bing.com/th/id/OIP.VxUzGe24OrxCbj80SGSBGgHaLB?w=184&h=275&c=7&r=0&o=5&pid=1.7" alt="Capa do Livro 2">
+      <h3>A Arte da Guerra</h3>
+      <p>Manual de estratégia</p>
+      <a href="https://pay.cakto.com.br/5UUUUEh" target="_blank" class="comprar-btn">Comprar Agora</a>
     </div>
     <div class="book-card">
-      <img src="https://via.placeholder.com/150x200" alt="Livro 3">
-      <h5>Livro 3</h5>
+      <img src="https://th.bing.com/th/id/OIP.RIVFl9SVYKTy8Pt7cpOBsAHaKq?w=115&h=180&c=7&r=0&o=5&pid=1.7">
+      <h3>O Poder do Hábito</h3>
+      <p>
+        Rotina transformadora.</p>
+      <a href="https://pay.cakto.com.br/Cho3kZK" target="_blank" class="comprar-btn">Comprar Agora</a>
     </div>
   </div>
 
@@ -173,29 +180,33 @@
   </div>
 
   <script>
-    // Menu Toggle
-    const menuBtn = document.querySelector('.menu-btn');
-    const menu = document.getElementById('menu');
-    menuBtn.addEventListener('click', () => {
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    });
+    const track = document.getElementById('carousel-track');
+    const indicators = document.querySelectorAll('.carousel-indicators button');
+    let currentIndex = 0;
 
-    // Promo Timer
-    const timerElement = document.getElementById('timer');
-    let timeLeft = 240; // 4 minutos em segundos
-
-    function updateTimer() {
-      const minutes = Math.floor(timeLeft / 60);
-      const seconds = timeLeft % 60;
-      timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-      if (timeLeft > 0) {
-        timeLeft--;
-      } else {
-        document.getElementById('promo-timer').textContent = 'Promoção encerrada!';
-      }
+    function updateCarousel() {
+      const width = track.children[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${currentIndex * width}px)`;
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentIndex);
+      });
     }
 
-    setInterval(updateTimer, 1000);
+    function autoSlide() {
+      currentIndex = (currentIndex + 1) % track.children.length;
+      updateCarousel();
+    }
+
+    setInterval(autoSlide, 5000); // Troca de banner a cada 3 segundos
+
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+
+    window.addEventListener('resize', updateCarousel); // Ajusta o tamanho ao redimensionar
   </script>
 </body>
 </html>
