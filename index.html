@@ -13,115 +13,90 @@
     }
     .navbar {
       background-color: #333;
-      padding: 10px 20px;
       color: white;
+      padding: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .navbar a {
+    .navbar .menu-btn {
+      background: #007bff;
       color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .menu {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 10px;
+      background: white;
+      color: black;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      width: 200px;
+      padding: 10px;
+      z-index: 1000;
+    }
+    .menu a {
       text-decoration: none;
-      margin: 0 10px;
+      color: #333;
+      display: block;
+      margin: 10px 0;
+    }
+    .promo-timer {
+      text-align: center;
+      background: #f06595;
+      color: white;
+      padding: 5px 10px;
+      font-size: 0.9rem;
     }
     .hero {
       text-align: center;
-      padding: 50px 20px;
+      padding: 30px 15px;
       background: #f4f4f4;
     }
     .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+      font-size: 1.8rem;
     }
     .hero p {
-      font-size: 1.2rem;
+      font-size: 0.9rem;
       color: #555;
     }
     .promo-banner {
       background: linear-gradient(to right, #ff6b6b, #f06595);
       color: white;
       text-align: center;
-      padding: 40px 20px;
-      margin: 20px 0;
+      padding: 15px;
+      margin: 15px 0;
       border-radius: 10px;
     }
     .promo-banner h2 {
-      font-size: 2rem;
+      font-size: 1.2rem;
     }
-    .categories {
+    .categories, .books {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 10px;
       justify-content: center;
-      padding: 20px 0;
+      padding: 10px 0;
     }
-    .category-item {
+    .category-item, .book-card {
       background: #f8f9fa;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 10px;
+      border-radius: 5px;
       text-align: center;
       flex: 1;
-      min-width: 150px;
-      max-width: 250px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-    }
-    .category-item:hover {
-      transform: scale(1.05);
-    }
-    .books {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      padding: 20px 0;
-    }
-    .book-card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      overflow: hidden;
-      max-width: 200px;
-      text-align: center;
+      min-width: 120px;
+      max-width: 150px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     .book-card img {
       width: 100%;
-      height: 250px;
+      height: 150px;
       object-fit: cover;
-    }
-    .book-card h5 {
-      font-size: 1rem;
-      margin: 10px 0;
-    }
-    .book-card button {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px;
-      width: 100%;
-      cursor: pointer;
-      border-radius: 0 0 10px 10px;
-    }
-    .newsletter {
-      text-align: center;
-      padding: 40px 20px;
-      background: #f8f9fa;
-    }
-    .newsletter input {
-      width: 70%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      margin-right: 10px;
-    }
-    .newsletter button {
-      background: #28a745;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
     }
     .footer {
       background: #333;
@@ -134,25 +109,37 @@
 <body>
   <!-- Navbar -->
   <div class="navbar">
+    <button class="menu-btn">☰ Gêneros</button>
     <div class="logo">Loja de Livros</div>
     <div class="links">
-      <a href="#">Início</a>
-      <a href="#">Livros</a>
-      <a href="#">Promoções</a>
-      <a href="#">Contato</a>
+      <a href="#" style="color: white; text-decoration: none; margin-right: 10px;">Promoções</a>
     </div>
+  </div>
+
+  <!-- Menu de Gêneros -->
+  <div class="menu" id="menu">
+    <a href="#">Ficção</a>
+    <a href="#">Romance</a>
+    <a href="#">Aventura</a>
+    <a href="#">Negócios</a>
+    <a href="#">Biografias</a>
+  </div>
+
+  <!-- Promo Timer -->
+  <div class="promo-timer" id="promo-timer">
+    Promoção termina em: <span id="timer">04:00</span>
   </div>
 
   <!-- Hero Section -->
   <div class="hero">
     <h1>Bem-vindo à Loja de Livros</h1>
-    <p>Explore nosso catálogo de livros e descubra sua próxima leitura favorita!</p>
+    <p>Explore o nosso catálogo de livros e descubra sua próxima leitura!</p>
   </div>
 
   <!-- Promo Banner -->
   <div class="promo-banner">
     <h2>Promoção Especial: Frete Grátis</h2>
-    <p>Compre 3 livros ou mais e receba frete grátis para todo o Brasil!</p>
+    <p>Compre 3 livros ou mais e ganhe frete grátis!</p>
   </div>
 
   <!-- Categorias -->
@@ -167,30 +154,17 @@
   <!-- Livros em Destaque -->
   <div class="books">
     <div class="book-card">
-      <img src="https://via.placeholder.com/200x250" alt="Livro 1">
+      <img src="https://via.placeholder.com/150x200" alt="Livro 1">
       <h5>Livro 1</h5>
-      <button>Comprar</button>
     </div>
     <div class="book-card">
-      <img src="https://via.placeholder.com/200x250" alt="Livro 2">
+      <img src="https://via.placeholder.com/150x200" alt="Livro 2">
       <h5>Livro 2</h5>
-      <button>Comprar</button>
     </div>
     <div class="book-card">
-      <img src="https://via.placeholder.com/200x250" alt="Livro 3">
+      <img src="https://via.placeholder.com/150x200" alt="Livro 3">
       <h5>Livro 3</h5>
-      <button>Comprar</button>
     </div>
-  </div>
-
-  <!-- Newsletter -->
-  <div class="newsletter">
-    <h3>Assine nossa Newsletter</h3>
-    <p>Receba as últimas novidades e promoções no seu e-mail!</p>
-    <form>
-      <input type="email" placeholder="Digite seu e-mail" required>
-      <button type="submit">Assinar</button>
-    </form>
   </div>
 
   <!-- Footer -->
@@ -199,13 +173,29 @@
   </div>
 
   <script>
-    // JavaScript simples para o formulário de newsletter
-    const form = document.querySelector("form");
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
-      alert("Obrigado por assinar nossa newsletter!");
-      form.reset();
+    // Menu Toggle
+    const menuBtn = document.querySelector('.menu-btn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     });
+
+    // Promo Timer
+    const timerElement = document.getElementById('timer');
+    let timeLeft = 240; // 4 minutos em segundos
+
+    function updateTimer() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      if (timeLeft > 0) {
+        timeLeft--;
+      } else {
+        document.getElementById('promo-timer').textContent = 'Promoção encerrada!';
+      }
+    }
+
+    setInterval(updateTimer, 1000);
   </script>
 </body>
 </html>
