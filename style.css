@@ -1,224 +1,204 @@
-/* Resetando estilos padrão */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Corpo */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
-}
-
-/* Cabeçalho */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #111;
-}
-
-header .logo {
-    width: 60px;  /* Tamanho do círculo */
-    height: 60px; /* Tamanho do círculo */
-    border-radius: 50%; /* Círculo */
-    overflow: hidden; /* Para garantir que a imagem não vaze para fora do círculo */
-}
-
-header .logo img {
-    width: 100%;  /* A imagem vai preencher todo o círculo */
-    height: 100%; /* A imagem vai preencher todo o círculo */
-    object-fit: cover; /* A imagem será cortada de forma a cobrir o círculo */
-}
-
-/* Navegação */
-header nav ul {
-    list-style: none;
-    display: flex;
-}
-
-header nav ul li {
-    margin-left: 20px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-/* Banner Principal */
-.banner {
-    background-color: #333;
-    text-align: center;
-    padding: 50px;
-    margin-top: 20px;
-}
-
-.banner h2 {
-    font-size: 36px;
-}
-
-.banner p {
-    font-size: 18px;
-}
-
-/* Seção de Livros */
-.livros {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px;
-}
-
-.livro {
-    background-color: #222;
-    margin: 15px;
-    padding: 20px;
-    text-align: center;
-    width: 250px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.livro img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-.livro h3 {
-    font-size: 20px;
-    margin: 15px 0;
-}
-
-.livro p {
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.comprar-btn {
-    background-color: #ff6347;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.comprar-btn:hover {
-    background-color: #ff4500;
-}
-
-/* Rodapé */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #111;
-}
-
-footer p {
-    font-size: 14px;
-    color: #bbb;
-}
-
-.redes-sociais {
-    margin-top: 10px;
-}
-
-.redes-sociais a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 16px;
-}
-
-.redes-sociais a:hover {
-    color: #ff6347;
-}
-
-/* Modal de Suporte */
-.modal {
-    display: none; /* Inicialmente escondido */
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro */
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-conteudo {
-    background-color: #333;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center; /* Centraliza o título */
-    color: #fff;
-    width: 90%;
-    max-width: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centraliza o modal na tela */
-}
-
-.modal h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.modal p {
-    font-size: 18px;
-    text-align: left; /* Alinha os parágrafos à esquerda */
-}
-
-.fechar {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #fff;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.fechar:hover {
-    color: #ff6347;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .livros {
-        flex-direction: column;
-        align-items: center;
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja de Livros Responsiva</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
-
-    .livro {
-        width: 80%;
+    .navbar {
+      background-color: #000000;
+      color: rgb(0, 0, 0);
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
     }
-
-    .banner h2 {
-        font-size: 28px;
+    .navbar .logo img {
+      height: 40px;
+      border-radius: 10%;
     }
-
-    .banner p {
-        font-size: 16px;
+    .navbar .search {
+      position: absolute;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      background-color: #000000;
+      border-radius: 5px;
+      padding: 5px 10px;
     }
-}
-
-@media (max-width: 480px) {
-    .livro {
-        width: 100%;
+    .navbar .search input {
+      border: none;
+      padding: 5px;
+      margin-right: 5px;
+      font-size: 1rem;
     }
-
-    .banner h2 {
-        font-size: 24px;
+    .navbar .search button {
+      background-color: #007bff;
+      color: rgb(0, 0, 0);
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
     }
-
-    .banner p {
-        font-size: 14px;
+    .navbar .search button:hover {
+      background-color: #0056b3;
     }
-}
+    .promo-banner {
+      background: linear-gradient(to right, hsl(0, 0%, 0%), #000000);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .promo-banner h2 {
+      font-size: 1.2rem;
+    }
+    .books {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    .book-card {
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      flex: 1 1 45%;
+      max-width: 180px;
+    }
+    .book-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .book-card h3 {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+    .book-card p {
+      font-size: 0.85rem;
+      color: #555;
+    }
+    .book-card .preco-antigo {
+      text-decoration: line-through;
+      color: red;
+    }
+    .book-card .preco-novo {
+      font-size: 1.1rem;
+      color: black;
+    }
+    .comprar-btn {
+      display: inline-block;
+      background-color: #007bff;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .comprar-btn:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+    @media (max-width: 768px) {
+      .book-card {
+        flex: 1 1 45%;
+      }
+    }
+    @media (max-width: 480px) {
+      .book-card {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">
+      <img src="Imperio (3).png" alt="Logo da Loja">
+    </div>
+    <div class="search">
+      <input type="text" placeholder="Pesquisar livros...">
+      <button>Buscar</button>
+    </div>
+  </div>
+
+  <div class="promo-banner">
+    <h2>Promoção Especial: Frete Grátis</h2>
+    <p>Compre 3 livros ou mais e ganhe frete grátis!</p>
+  </div>
+
+  <div class="books">
+    <div class="book-card">
+      <img src="OIP.jpg" alt="Capa do Livro 1">
+      <h3>O Despertar</h3>
+      <p>Postura Alfa</p>
+      <p class="preco-antigo">R$ 59,99</p>
+      <p class="preco-novo">R$ 35,99</p>
+      <a href="https://pay.cakto.com.br/5UUUUEh" target="_blank" class="comprar-btn">Comprar Agora</a>
+    </div>
+    <div class="book-card">
+      <img src="Marionete.jpg" alt="Capa do Livro 2">
+      <h3>Alfa Milionário</h3>
+      <p>Sucesso Pessoal</p>
+      <p class="preco-antigo">R$ 79,99</p>
+      <p class="preco-novo">R$ 49,99</p>
+      <a href="https://pay.cakto.com.br/4qTV9mU" target="_blank" class="comprar-btn">Comprar Agora</a>
+    </div>
+    <div class="book-card">
+      <img src="Poder.png" alt="Capa do Livro 3">
+      <h3>Superação Completa</h3>
+      <p>Crescimento Pessoal</p>
+      <p class="preco-antigo">R$ 99,99</p>
+      <p class="preco-novo">R$ 55,99</p>
+      <a href="https://pay.cakto.com.br/49WFTtb" target="_blank" class="comprar-btn">Comprar Agora</a>
+    </div>
+    <div class="book-card">
+      <img src="hAB.jpg" alt="Capa do Livro 4">
+      <h3>Mente Brilhante</h3>
+      <p>Autoajuda</p>
+      <p class="preco-antigo">R$ 89,99</p>
+      <p class="preco-novo">R$ 59,99</p>
+      <a href="https://pay.cakto.com.br/link4" target="_blank" class="comprar-btn">Comprar Agora</a>
+    </div>
+    <div class="book-card">
+      <img src="Livro5.jpg" alt="Capa do Livro 5">
+      <h3>Estratégias de Ouro</h3>
+      <p>Negócios</p>
+      <p class="preco-antigo">R$ 119,99</p>
+      <p class="preco-novo">R$ 79,99</p>
+      <a href="https://pay.cakto.com.br/link5" target="_blank" class="comprar-btn">Comprar Agora</a>
+    </div>
+    <div class="book-card">
+      <img src="Livro6.jpg" alt="Capa do Livro 6">
+      <h3>Pensar Grande</h3>
+      <p>Motivacional</p>
+      <p class="preco-antigo">R$ 69,99</p>
+      <p class="preco-novo">R$ 49,99</p>
+      <a href="https://pay.cakto.com.br/link6" target="_blank" class="comprar-btn">Comprar Agora</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2025 Loja de Livros - Todos os direitos reservados.</p>
+  </div>
+</body>
+</html>
