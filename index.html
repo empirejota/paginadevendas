@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -12,12 +13,12 @@
     }
     .navbar {
       background-color: #000000;
-      color: rgb(0, 0, 0);
+      color: white;
       padding: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
+      position: relative; /* para garantir o alinhamento correto */
     }
     .navbar .logo img {
       height: 40px;
@@ -28,7 +29,7 @@
       right: 20px;
       display: flex;
       align-items: center;
-      background-color: #000000;
+      background-color: #ffffff;
       border-radius: 5px;
       padding: 5px 10px;
     }
@@ -40,7 +41,7 @@
     }
     .navbar .search button {
       background-color: #007bff;
-      color: rgb(0, 0, 0);
+      color: white;
       padding: 5px 10px;
       border-radius: 5px;
       border: none;
@@ -49,45 +50,51 @@
     .navbar .search button:hover {
       background-color: #0056b3;
     }
+    .promo-timer {
+      text-align: center;
+      background: #ffffff;
+      color: white;
+      padding: 1px 2px;
+      font-size: 0.9rem;
+    }
     .promo-banner {
       background: linear-gradient(to right, hsl(0, 0%, 0%), #000000);
       color: white;
       text-align: center;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      padding: 1px;
+      margin: 1px 0;
+      border-radius: 0px;
     }
     .promo-banner h2 {
       font-size: 1.2rem;
     }
-    .books {
+    .categories, .books {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
       padding: 10px 0;
     }
-    .book-card {
+    .category-item, .book-card {
       background: #f8f9fa;
       padding: 10px;
       border-radius: 5px;
       text-align: center;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      flex: 1 1 45%;
+      flex: 1 1 45%; /* Alterado para 45% para exibir dois livros por linha */
       max-width: 180px;
     }
     .book-card img {
       width: 100%;
-      height: 150px;
+      height: 150px; /* Altura reduzida das imagens */
       object-fit: cover;
     }
     .book-card h3 {
       margin: 10px 0;
-      font-size: 1rem;
+      font-size: 1rem; /* Tamanho reduzido do título */
     }
     .book-card p {
-      font-size: 0.85rem;
+      font-size: 0.85rem; /* Tamanho reduzido da descrição */
       color: #555;
     }
     .book-card .preco-antigo {
@@ -95,14 +102,14 @@
       color: red;
     }
     .book-card .preco-novo {
-      font-size: 1.1rem;
+      font-size: 1.1rem; /* Preço novo mais destacado */
       color: black;
     }
     .comprar-btn {
       display: inline-block;
       background-color: #007bff;
       color: white;
-      padding: 8px 15px;
+      padding: 8px 15px; /* Botão menor */
       border-radius: 5px;
       text-decoration: none;
       margin-top: 10px;
@@ -118,87 +125,171 @@
       text-align: center;
       padding: 10px 0;
     }
+    .carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      max-height: 300px; /* Altura fixa para os banners */
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 0cap;
+      border-color: #160000;
+      color: #000000;
+    }
+    .carousel-indicators {
+      position: absolute;
+      bottom: 1px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+    }
+    .carousel-indicators button {
+      width: 10px;
+      height: 5px;
+      background-color: rgba(255, 255, 255, 0.788);
+      cursor: pointer;
+    }
+    .carousel-indicators button.active {
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    /* Responsividade para telas pequenas (celulares) */
     @media (max-width: 768px) {
       .book-card {
-        flex: 1 1 45%;
+        flex: 1 1 45%; /* Agora 45% da largura para mostrar dois livros por vez */
       }
     }
+
+    /* Ajuste para telas muito pequenas */
     @media (max-width: 480px) {
       .book-card {
-        flex: 1 1 100%;
+        flex: 1 1 100%; /* Os livros ocupam 100% da largura em telas muito pequenas (smartphones pequenos) */
       }
+    }
+
+    /* Estilo do botão "Ver mais" */
+    .ver-mais-btn {
+      display: block;
+      text-align: center;
+      background-color: #007bff;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .ver-mais-btn:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
   <div class="navbar">
     <div class="logo">
       <img src="Imperio (3).png" alt="Logo da Loja">
     </div>
+    <!-- Barra de pesquisa -->
     <div class="search">
       <input type="text" placeholder="Pesquisar livros...">
       <button>Buscar</button>
     </div>
   </div>
 
+  <!-- Carrossel de Banners -->
+  <div class="carousel">
+    <div class="carousel-track" id="carousel-track">
+      <img src="Design sem nome (2).png" alt="Banner 1">
+      <img src="Design sem nome (2).png" alt="Banner 2">
+      <img src="Design sem nome (2).png" alt="Banner 3">
+    </div>
+    <div class="carousel-indicators" id="carousel-indicators">
+      <button data-slide="0" class="active"></button>
+      <button data-slide="1"></button>
+      <button data-slide="2"></button>
+    </div>
+  </div>
+
+  <!-- Promoção Especial -->
   <div class="promo-banner">
     <h2>Promoção Especial: Frete Grátis</h2>
     <p>Compre 3 livros ou mais e ganhe frete grátis!</p>
   </div>
 
-  <div class="books">
+  <!-- Livros em Destaque -->
+  <div class="books" id="books-list">
+    <!-- Livro 1 -->
     <div class="book-card">
-      <img src="OIP.jpg" alt="Capa do Livro 1">
+      <img src="https://covers.openlibrary.org/b/id/7222246-L.jpg" alt="Capa do Livro 1">
       <h3>O Despertar</h3>
       <p>Postura Alfa</p>
       <p class="preco-antigo">R$ 59,99</p>
       <p class="preco-novo">R$ 35,99</p>
-      <a href="https://pay.cakto.com.br/5UUUUEh" target="_blank" class="comprar-btn">Comprar Agora</a>
+      <a href="https://example.com/comprar1" target="_blank" class="comprar-btn">Comprar Agora</a>
     </div>
+
+    <!-- Livro 2 -->
     <div class="book-card">
-      <img src="Marionete.jpg" alt="Capa do Livro 2">
+      <img src="https://covers.openlibrary.org/b/id/10422594-L.jpg" alt="Capa do Livro 2">
       <h3>Alfa Milionário</h3>
       <p>Sucesso Pessoal</p>
       <p class="preco-antigo">R$ 79,99</p>
       <p class="preco-novo">R$ 49,99</p>
-      <a href="https://pay.cakto.com.br/4qTV9mU" target="_blank" class="comprar-btn">Comprar Agora</a>
+      <a href="https://example.com/comprar2" target="_blank" class="comprar-btn">Comprar Agora</a>
     </div>
+
+    <!-- Livro 3 -->
     <div class="book-card">
-      <img src="Poder.png" alt="Capa do Livro 3">
+      <img src="https://covers.openlibrary.org/b/id/11737930-L.jpg" alt="Capa do Livro 3">
       <h3>Superação Completa</h3>
       <p>Crescimento Pessoal</p>
       <p class="preco-antigo">R$ 99,99</p>
       <p class="preco-novo">R$ 55,99</p>
-      <a href="https://pay.cakto.com.br/49WFTtb" target="_blank" class="comprar-btn">Comprar Agora</a>
-    </div>
-    <div class="book-card">
-      <img src="hAB.jpg" alt="Capa do Livro 4">
-      <h3>Mente Brilhante</h3>
-      <p>Autoajuda</p>
-      <p class="preco-antigo">R$ 89,99</p>
-      <p class="preco-novo">R$ 59,99</p>
-      <a href="https://pay.cakto.com.br/link4" target="_blank" class="comprar-btn">Comprar Agora</a>
-    </div>
-    <div class="book-card">
-      <img src="Livro5.jpg" alt="Capa do Livro 5">
-      <h3>Estratégias de Ouro</h3>
-      <p>Negócios</p>
-      <p class="preco-antigo">R$ 119,99</p>
-      <p class="preco-novo">R$ 79,99</p>
-      <a href="https://pay.cakto.com.br/link5" target="_blank" class="comprar-btn">Comprar Agora</a>
-    </div>
-    <div class="book-card">
-      <img src="Livro6.jpg" alt="Capa do Livro 6">
-      <h3>Pensar Grande</h3>
-      <p>Motivacional</p>
-      <p class="preco-antigo">R$ 69,99</p>
-      <p class="preco-novo">R$ 49,99</p>
-      <a href="https://pay.cakto.com.br/link6" target="_blank" class="comprar-btn">Comprar Agora</a>
+      <a href="https://example.com/comprar3" target="_blank" class="comprar-btn">Comprar Agora</a>
     </div>
   </div>
 
+  <a href="#" class="ver-mais-btn">Ver Mais</a>
+
+  <!-- Footer -->
   <div class="footer">
     <p>&copy; 2025 Loja de Livros - Todos os direitos reservados.</p>
   </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel img');
+    const indicators = document.querySelectorAll('.carousel-indicators button');
+    const totalSlides = slides.length;
+
+    function changeSlide(index) {
+      const offset = -index * 100;
+      document.getElementById('carousel-track').style.transform = `translateX(${offset}%)`;
+      indicators.forEach(indicator => indicator.classList.remove('active'));
+      indicators[index].classList.add('active');
+    }
+
+    document.querySelectorAll('.carousel-indicators button').forEach(button => {
+      button.addEventListener('click', (e) => {
+        currentSlide = parseInt(e.target.dataset.slide);
+        changeSlide(currentSlide);
+      });
+    });
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      changeSlide(currentSlide);
+    }, 5000);
+  </script>
 </body>
 </html>
